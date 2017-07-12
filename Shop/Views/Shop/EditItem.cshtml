@@ -1,0 +1,38 @@
+﻿@model Shop.Models.Item
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Enter details for the item</h1>
+        @using (var form = Html.BeginForm("ChangeItem", "Shop"))
+        {
+            @Html.HiddenFor(x => x.ID)
+            <table>
+                <tr>
+                    <td>Title:</td>
+                    <td>@Html.TextBoxFor(x => x.Title)</td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td>@Html.TextBoxFor(x => x.Category)</td>
+                </tr>
+                @*<p>Image: @Html.TextBoxFor(x => x.Image)</p>
+                    <br />*@
+                <tr>
+                    <td>Description:</td>
+                    <td>@Html.TextBoxFor(x => x.Description)</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>@Html.TextBoxFor(x => x.Price)</td>
+                </tr>
+                <tr>
+                    <td>Number Available:</td>
+                    <td>@Html.TextBoxFor(x => x.NumberAvailable)</td>
+                </tr>
+            </table>
+            <input type="submit" value="Save Changes" name="submitItem" />
+        }
+    </div>
+</div>

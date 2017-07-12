@@ -1,0 +1,42 @@
+﻿@model Shop.Models.Item
+
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <td><strong>Title</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td><strong>Category</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Category</td>
+            </tr>
+            @*<tr><td>Image</td></tr>
+                <tr><td>@Model.Image</td></tr>*@
+            <tr>
+                <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Description</td>
+            </tr>
+            <tr>
+                <td><strong>Price</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Price</td>
+            </tr>
+            <tr>
+                <td><strong>Number Available</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.NumberAvailable</td>
+            </tr>
+        </table>
+        <br />
+        @Html.ActionLink("Return to Shop", "Shop", "Shop")
+    </div>
+</div>

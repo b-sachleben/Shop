@@ -1,0 +1,51 @@
+﻿@model Shop.Models.Item
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <td><strong>Title</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <td><strong>Category</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Category</td>
+            </tr>
+            @*<tr><td>Image</td></tr>
+                <tr><td>@Model.Image</td></tr>*@
+            <tr>
+                <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Description</td>
+            </tr>
+            <tr>
+                <td><strong>Price</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.Price</td>
+            </tr>
+            <tr>
+                <td><strong>Number Available</strong></td>
+            </tr>
+            <tr>
+                <td>@Model.NumberAvailable</td>
+            </tr>
+        </table>
+        <br />
+
+        @using (var form = Html.BeginForm("ConfirmDelete", "Shop"))
+        {
+            @Html.HiddenFor(x => x.ID)
+            <input type="submit" value="Confirm Delete" name="confirmDelete" />
+            @*@Html.ActionLink("Confirm Delete", "ConfirmDelete", "Shop")*@
+            @Html.ActionLink("Cancel", "Shop", "Shop")
+        }
+    </div>
+</div>

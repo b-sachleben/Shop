@@ -1,0 +1,10 @@
+﻿CREATE TABLE Items
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	Title NVARCHAR(100),
+	Category NVARCHAR(100),
+	"Image" NVARCHAR(100),
+	"Description" NVARCHAR(100),
+	Price NVARCHAR(100),
+	NumberAvailable NVARCHAR(100)
+)

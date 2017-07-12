@@ -1,0 +1,1 @@
+﻿INSERT INTO Items (Title, Category, "Image", "Description", Price, NumberAvailable) VALUES ('Coast Highway', 'Photography Prints', '', 'The Pacific coast from California''s Highway 1', 7, 12)
