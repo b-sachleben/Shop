@@ -32,14 +32,14 @@ namespace Shop.Controllers
 
         public ActionResult CreateItem()
         {
-            ViewBag.Title = "AddItem";
+            ViewBag.Title = "Add Item";
 
             return View("AddItem");
         }
 
         public ActionResult AddItem(Item item)
         {
-            ViewBag.Title = "Details";
+            ViewBag.Title = "Add Item | Details";
 
             _repository.AddItem(item);
             return View("ViewDetails", item);
@@ -59,18 +59,24 @@ namespace Shop.Controllers
 
         public ActionResult ChangeItem(Item item)
         {
+            ViewBag.Title = "Edit Item | Details";
+
             _repository.EditItem(item);
 
-            return View("ViewDetails", _repository.Items);
+            return View("ViewDetails", _repository.GetItem(item.ID));
         }
 
         public ActionResult DeleteItem(int id)
         {
+            ViewBag.Title = "Delete Item | Confirm";
+
             return View("DeleteItem", _repository.GetItem(id));
         }
 
         public ActionResult ConfirmDelete(int id)
         {
+            ViewBag.Title = "List of Products";
+
             _repository.DeleteItem(id);
 
             return View("Shop", _repository.Items);
@@ -78,6 +84,8 @@ namespace Shop.Controllers
 
         public ActionResult Shop()
         {
+            ViewBag.Title = "List of Products";
+
             return View("Shop", _repository.Items);
         }
     }
