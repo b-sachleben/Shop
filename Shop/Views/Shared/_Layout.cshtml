@@ -1,42 +1,92 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | @ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title</title>
+
+    @if (ViewBag.ShopSection == true)
+    {
+        @Styles.Render("~/Content/shopCss")
+    }
+    else
+    {
+        @Styles.Render("~/Content/mainCss")
+    }
     @Scripts.Render("~/bundles/modernizr")
+
+    @*<!-- Normalize -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-files/css/bootstrap.min.css">*@
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Shop", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Shop")</li>
-                    <li>@Html.ActionLink("Add Item", "CreateItem", "Shop")</li>
-                    <li>@Html.ActionLink("Shop", "Shop", "Shop")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
+    <header>
+        @{ 
+            string navigation = ViewBag.Navigation;
+
+            Html.RenderPartial(navigation);
+        }
+    </header>
+
     <div class="container body-content">
+
+        <!-- main content goes here -->
+        
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Brian Sachleben</p>
-        </footer>
-    </div>
+    </div> <!-- end container -->
+
+    <footer>
+
+        <p class="copyright">&copy; @DateTime.Now.Year - Brian Sachleben</p>
+        <div class="social_links">
+            <a href="https://www.instagram.com/"><img src="~/svg/Instagram.svg" class="instagram social_media_icons" alt="instagram"></a>
+            <a href="https://www.facebook.com/"><img src="~/svg/Facebook.svg" class="facebook social_media_icons" alt="facebook"></a>
+            <a href="https://twitter.com/"><img src="~/svg/Twitter.svg" class="twitter social_media_icons" alt="linkedin"></a>
+            <a href="https://dribbble.com/"><img src="~/svg/Dribbble.svg" class="dribbble social_media_icons" alt="dribbble"></a>
+            <a href="#"><img src="~/svg/email.svg" class="email social_media_icons" alt="email"></a>
+        </div>
+
+    </footer>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    @*<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+
+    <script src="js/site_menu.js" type="text/javascript"></script>
+    <script src="js/img_gallery.js" type="text/javascript"></script>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
+
+    <!-- end Scripts -->
+
 </body>
+
 </html>
+
+@*<div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p></p>
+                </footer>
+            </div>
+
+            
+    </body>
+    </html>*@

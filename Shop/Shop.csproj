@@ -150,18 +150,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\main.css" />
-    <Content Include="css\normalize.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,7 +197,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\.DS_Store" />
     <Content Include="data\images.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -224,15 +225,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shop\About.cshtml" />
-    <Content Include="Views\Shop\Contact.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\ImageGallery\About.cshtml" />
+    <Content Include="Views\ImageGallery\Index.cshtml" />
     <Content Include="Views\Shop\Shop.cshtml" />
     <Content Include="Views\Shop\AddItem.cshtml" />
     <Content Include="Views\Shop\ViewDetails.cshtml" />
     <Content Include="Views\Shop\EditItem.cshtml" />
-    <Content Include="svg\.DS_Store" />
     <Content Include="Views\Shop\DeleteItem.cshtml" />
+    <Content Include="Views\Shop\_ShopNavigation.cshtml" />
+    <Content Include="Views\ImageGallery\_MainNavigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Shop.Models;
+using Shop.Repositories;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -10,11 +11,10 @@ namespace Shop.Controllers
 {
     public class ShopController : Controller
     {
-        static Repository _repository = new Repository();
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         //public ActionResult About()
         //{
@@ -33,6 +33,8 @@ namespace Shop.Controllers
         public ActionResult CreateItem()
         {
             ViewBag.Title = "Add Item";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
             return View("AddItem");
         }
@@ -40,9 +42,14 @@ namespace Shop.Controllers
         public ActionResult AddItem(Item item)
         {
             ViewBag.Title = "Add Item | Details";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            _repository.AddItem(item);
-            return View("ViewDetails", item);
+            using (var repo = new Repository())
+            {
+                repo.AddItem(item);
+                return View("ViewDetails", item);
+            }
         }
 
         //public ActionResult ViewDetails(Item item)
@@ -53,91 +60,63 @@ namespace Shop.Controllers
         public ActionResult EditItem(int id)
         {
             ViewBag.Title = "Edit Item";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            return View("EditItem", _repository.GetItem(id));
+            using (var repo = new Repository())
+            { 
+                return View("EditItem", repo.GetItem(id));
+            }
         }
 
         public ActionResult ChangeItem(Item item)
         {
             ViewBag.Title = "Edit Item | Details";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            _repository.EditItem(item);
-
-            return View("ViewDetails", _repository.GetItem(item.ID));
+            using (var repo = new Repository())
+            {
+                repo.EditItem(item);
+                return View("ViewDetails", repo.GetItem(item.ID));
+            }
         }
 
         public ActionResult DeleteItem(int id)
         {
             ViewBag.Title = "Delete Item | Confirm";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            return View("DeleteItem", _repository.GetItem(id));
+            using (var repo = new Repository())
+            {
+                return View("DeleteItem", repo.GetItem(id));
+            }
         }
 
-        public ActionResult ConfirmDelete(int id)
+        public ActionResult ConfirmDelete(Item item)
         {
             ViewBag.Title = "List of Products";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            _repository.DeleteItem(id);
-
-            return View("Shop", _repository.Items);
+            using (var repo = new Repository())
+            {
+                repo.DeleteItem(item);
+                return View("Shop", repo.Items.ToList());
+            }
         }
 
         public ActionResult Shop()
         {
             ViewBag.Title = "List of Products";
+            ViewBag.Navigation = "_ShopNavigation";
+            ViewBag.ShopSection = true;
 
-            return View("Shop", _repository.Items);
-        }
-    }
-
-    public class Repository
-    {
-        public void AddItem(Item item)
-        {
-            using (var connection = CreateConnection())
-            {
-                connection.Execute("INSERT INTO Items (Title, Category, \"Description\", Price, NumberAvailable) VALUES (@Title, @Category, @Description, @Price, @NumberAvailable)", new { Title = item.Title, Category = item.Category, Description = item.Description, Price = item.Price, NumberAvailable = item.NumberAvailable });
+            using (var repo = new Repository())
+            { 
+                return View("Shop", repo.Items.ToList());
             }
-        }
-
-        public void EditItem(Item item)
-        {
-            using (var connection = CreateConnection())
-            {
-                connection.Execute("UPDATE Items SET Title = @Title, Category = @Category, \"Description\" = @Description, Price = @Price, NumberAvailable = @NumberAvailable WHERE ID = @Id", new { Title = item.Title, Category = item.Category, Description = item.Description, Price = item.Price, NumberAvailable = item.NumberAvailable, Id = item.ID });
-            }
-        }
-
-        public void DeleteItem(int id)
-        {
-            using (var connection = CreateConnection())
-            {
-                connection.Execute("DELETE FROM Items WHERE ID = @ContactId", new { ContactId = id });
-            }
-        }
-
-        public Item GetItem(int id)
-        {
-            using (var connection = CreateConnection())
-            {
-                return connection.QuerySingle<Item>("SELECT * FROM Items WHERE ID = @ContactId", new { ContactId = id });
-            }
-        }
-
-        public List<Item> Items
-        {
-            get
-            {
-                using (var connection = CreateConnection())
-                {
-                    return connection.Query<Item>("SELECT * FROM Items").ToList();
-                }
-            }
-        }
-
-        private DbConnection CreateConnection()
-        {
-            return new SqlConnection("Server=(localDb)\\MsSqlLocalDb;Database=ShopDatabase;Trusted_Connection=true");
         }
     }
 }

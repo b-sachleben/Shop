@@ -23,9 +23,20 @@ namespace Shop
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                    "~/js/img_gallery.js",
+                    "~/js/site_menu.js"));
+
+            bundles.Add(new StyleBundle("~/Content/shopCss").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/normalize.css",
+                      "~/Content/main.css"));
+
+            bundles.Add(new StyleBundle("~/Content/mainCss").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/normalize.css",
+                      "~/Content/main.css"));
         }
     }
 }
