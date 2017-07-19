@@ -1,7 +1,7 @@
 ﻿@model List<Shop.Models.Item>
 
 <div class="container">
-    <div class="col-md-12">
+    <div class="col-md-12 table_spacing">
         <h2>@ViewBag.Title</h2>
         <table class="table table-striped">
             <tr>
@@ -23,10 +23,11 @@
                     <td>@item.Description</td>
                     <td>@item.Price</td>
                     <td>@item.NumberAvailable</td>
-                    <td>@Html.ActionLink("Edit Item", "EditItem", new { Id = item.ID })</td>
-                    <td>@Html.ActionLink("Delete Item", "DeleteItem", new { Id = item.ID })</td>
+                    <td><a href="@Url.Action("EditItem", new { Id = item.ID })" class="btn btn-info btn-sm">Edit Item</a></td>
+                    <td><a href="@Url.Action("DeleteItem", new { Id = item.ID })" class="btn btn-warning btn-sm">Delete Item</a></td>
                 </tr>
             }
         </table>
+        @Html.ActionLink("+ Add Item", "CreateItem", "Shop", new { @class = "btn btn-lg btn-success" })
     </div>
 </div>

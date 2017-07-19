@@ -129,6 +129,20 @@ footer {
               Shop Page
 ---------------------------------------*/
 
-.hide-navigation {
-    visibility: hidden;
+.table_spacing {
+    padding: 40px 0;
+}
+
+.table_fullwidth {
+    width: 100%;
+}
+
+.heading_underline {
+    border-bottom: solid #333 1px;
+    padding-bottom: 20px;
+}
+
+.jumbotron {
+    background-color: #f9f9f9;
+    box-shadow: rgba(128, 128, 128, .2) 2px 2px;
 }
