@@ -7,14 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Shop", "Shop", "Shop", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Application name", "Index", "Shop", new { area = "" }, new { @class = "navbar-brand" })
         </div>
-        <div class="navbar-collapse collapse pull-right">
+        <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Portfolio", "Index", "ImageGallery")</li>
+                <li>@Html.ActionLink("Home", "Index", "ImageGallery")</li>
                 <li>@Html.ActionLink("About", "About", "ImageGallery")</li>
+                <li>@Html.ActionLink("Add Item", "CreateItem", "Shop")</li>
                 <li>@Html.ActionLink("Shop", "Shop", "Shop")</li>
-                @*<li>@Html.ActionLink("Add Item", "CreateItem", "Shop")</li>*@
             </ul>
         </div>
     </div>
