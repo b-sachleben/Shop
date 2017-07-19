@@ -1,0 +1,147 @@
+﻿/*---------------------------------
+    CSS code for Shop section 
+----------------------------------*/
+
+/* boilerplate code set by Visual Studio scaffolding */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/* end boilerplate code */
+
+/*---------------------------------
+            Shop 
+----------------------------------*/
+
+@media only screen and (max-width: 760px) {
+
+    /* Table on "Shop" page 
+    ---------------------------*/
+
+    /* Force table to not be like tables anymore */
+    .responsive table, .responsive thead, .responsive tbody, .responsive th, .responsive td, .responsive tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .responsive th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .responsive tr {
+        /*border: 1px solid #ccc;*/
+    }
+
+    .responsive td {
+        /* Behave  like a "row" */
+        border: none;
+        /*border-bottom: 1px solid #eee;*/
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .responsive td:before {
+        /* Now like a table header */
+        /*position: absolute;*/
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /* remove table borders for edit and delete buttons */
+    .responsive td:nth-child(n+6) {
+        border: none;
+        text-align: center;
+    }
+
+    .responsive td:nth-child(6) {
+        border-top: 1px solid #ddd;
+    }
+
+    /* Label the data */
+    .responsive td:nth-of-type(1):before {
+        content: "Title: ";
+        font-weight: bold;
+    }
+
+    .responsive td:nth-of-type(2):before {
+        content: "Category: ";
+        font-weight: bold;
+    }
+
+    .responsive td:nth-of-type(3):before {
+        content: "Description: ";
+        font-weight: bold;
+    }
+
+    .responsive td:nth-of-type(4):before {
+        content: "Price: ";
+        font-weight: bold;
+    }
+
+    .responsive td:nth-of-type(5):before {
+        content: "Number Available: ";
+        font-weight: bold;
+    }
+
+    /* Table that lays out form on add and edit items page 
+    -------------------------------------------------------*/
+    
+    /* moves first column off screen but keeps it for screen readers */
+    .table_AddEdit td:first-child {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    /* Label the data */
+    .table_AddEdit tr:nth-child(1) td:nth-child(2)::before {
+        content: "Title: ";
+        font-size: .9em;
+    }
+
+    .table_AddEdit tr:nth-child(2) td:nth-child(2)::before {
+        content: "Category: ";
+        font-size: .9em;
+    }
+
+    .table_AddEdit tr:nth-child(3) td:nth-child(2)::before {
+        content: "Description: ";
+        font-size: .9em;
+    }
+
+    .table_AddEdit tr:nth-child(4) td:nth-child(2)::before {
+        content: "Price: ";
+        font-size: .9em;
+    }
+
+    .table_AddEdit tr:nth-child(5) td:nth-child(2)::before {
+        content: "Number Available: ";
+        font-size: .9em;
+    }
+}

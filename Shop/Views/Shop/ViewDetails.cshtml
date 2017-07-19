@@ -1,5 +1,7 @@
 ﻿@model Shop.Models.Item
 
+<!-- View details of item that was added/edited -->
+
 <div class="container">
     <div class="col-md-12 table_spacing">
         <table class="table table-striped">
@@ -37,6 +39,6 @@
             </tr>
         </table>
         <br />
-        @Html.ActionLink("Return to Shop", "Shop", "Shop")
+        @Html.ActionLink("Return to Shop", "Shop", "Shop", new { @class = "btn btn-default" })
     </div>
 </div>

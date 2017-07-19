@@ -29,7 +29,7 @@ namespace Shop
 
             bundles.Add(new StyleBundle("~/Content/shopCss").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
+                      "~/Content/shop.css",
                       "~/Content/normalize.css",
                       "~/Content/main.css"));
 

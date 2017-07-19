@@ -1,6 +1,6 @@
 ﻿@model Shop.Models.Item
 
-
+<!-- Add Item form -->
 
 <div class="container">
     <div class="col-md-12 table_spacing">
@@ -9,7 +9,7 @@
             <h2 class="heading_underline">Enter details for the item</h2>
             @using (var form = Html.BeginForm("AddItem", "Shop"))
             {
-                <table class="table_fullwidth">
+                <table class="table_fullwidth table_AddEdit">
                     <tr>
                         <td>Title:</td>
                         <td>@Html.TextBoxFor(x => x.Title, new { @class = "form-control" })</td>

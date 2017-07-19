@@ -167,7 +167,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\shop.css" />
     <Content Include="img\bio-pic-lrg.jpg" />
     <Content Include="img\bird_birdbath.jpg" />
     <Content Include="img\bird_birdbath_sml.jpg" />

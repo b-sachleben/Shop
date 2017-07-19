@@ -11,37 +11,23 @@ namespace Shop.Controllers
 {
     public class ShopController : Controller
     {
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your application description page.";
-
-        //    return View();
-        //}
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
-
+        // Begin Add Item section
+        // loads form to accept info
         public ActionResult CreateItem()
         {
             ViewBag.Title = "Add Item";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
             return View("AddItem");
         }
 
+        // POST to server
         public ActionResult AddItem(Item item)
         {
             ViewBag.Title = "Add Item | Details";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
@@ -51,15 +37,14 @@ namespace Shop.Controllers
                 return View("ViewDetails", item);
             }
         }
+        // End Add Item section
 
-        //public ActionResult ViewDetails(Item item)
-        //{
-        //    return View();
-        //}
-
+        // Begin Edit Item section
+        // GET item to edit
         public ActionResult EditItem(int id)
         {
             ViewBag.Title = "Edit Item";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
@@ -69,9 +54,11 @@ namespace Shop.Controllers
             }
         }
 
+        // POST edit to server
         public ActionResult ChangeItem(Item item)
         {
             ViewBag.Title = "Edit Item | Details";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
@@ -81,10 +68,14 @@ namespace Shop.Controllers
                 return View("ViewDetails", repo.GetItem(item.ID));
             }
         }
+        // End Edit Item section
 
+        // Begin Delete Item section
+        // GET item to delete
         public ActionResult DeleteItem(int id)
         {
             ViewBag.Title = "Delete Item | Confirm";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
@@ -94,9 +85,11 @@ namespace Shop.Controllers
             }
         }
 
+        // confirm action and POST to server
         public ActionResult ConfirmDelete(Item item)
         {
             ViewBag.Title = "List of Products";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
@@ -107,9 +100,11 @@ namespace Shop.Controllers
             }
         }
 
+        // GET list of items in database and display them
         public ActionResult Shop()
         {
             ViewBag.Title = "List of Products";
+            // variable to load appropriate navigation section
             ViewBag.Navigation = "_ShopNavigation";
             ViewBag.ShopSection = true;
 
